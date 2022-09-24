@@ -16,7 +16,8 @@ mod tests {
         transaction_timestamp: 0,
         transaction_details: String::from("Testing a new transaction"),
     };
-    let mut new_block = Block::new(vec![new_txn], &p2p_bc[p2p_bc.len() - 1]);Block::mine_new_block(&mut new_block, &PREFIX);
+    let mut new_block =  Block::new(vec![new_txn], &p2p_bc[p2p_bc.len() - 1]);
+    Block::mine_new_block(&mut new_block, &PREFIX);
     p2p_bc.push(new_block);assert_eq!(p2p_bc.len(),2);
     assert_eq!(p2p_bc[1].transaction_list[0].transaction_details,"Testing a new transaction");
     }
